@@ -15,7 +15,7 @@ all_options = {
     'Canada': [u'Montréal', 'Toronto', 'Ottawa']
 }
 app.layout = html.Div([
-    dcc.RadioItems(
+    dcc.Dropdown(
         id='continent-dropdown',
         # options=[{'label': k, 'value': k} for k in all_options.keys()],
         options=[{'label': c['continent'], 'value': c['continent']} for c in df.to_dict("rows")],
@@ -84,7 +84,7 @@ def set_display_children(selected_continent, selected_country):
         selected_country, selected_continent,
     )
 
-app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
+# app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 
 if __name__ == '__main__':
     app.run_server(debug=True)
